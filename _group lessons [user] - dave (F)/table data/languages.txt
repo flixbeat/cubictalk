@@ -1,0 +1,98 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.3.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jul 22, 2016 at 04:46 AM
+-- Server version: 5.1.33
+-- PHP Version: 5.2.9
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `english`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `languages`
+--
+
+CREATE TABLE IF NOT EXISTS `languages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `route_id` int(11) DEFAULT NULL COMMENT 'routes.id - fk',
+  `variable` varchar(80) DEFAULT NULL,
+  `en_text` longtext,
+  `ko_text` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+
+--
+-- Dumping data for table `languages`
+--
+
+INSERT INTO `languages` (`id`, `route_id`, `variable`, `en_text`, `ko_text`) VALUES
+(20, 105, 'fluency', '<h2>I came from fluency variable</h2>\r\n<p>hello world</p>\r\n<p><u>i am an english text</u></p>', '<h2>I came from fluency variable (in korean)</h2>\r\n<p>sample korean text here</p>\r\n<p><u>^ assuming those are korean texts</u></p>'),
+(21, 105, 'grammar', '<h3>I came from grammar variable</h3>\r\n<font color = "green">your grammar is good</font>', '<h3>I came from grammar variable (in korean)</h3>\r\n'),
+(22, 135, 'grammar', 'grammar', 'ko_text'),
+(23, 135, 'fluency', 'fluency', 'ko_text'),
+(24, 122, 'var1', 'en_text', 'ko_text'),
+(25, 148, 'fluency', 'fluency', '*sample korean text that translate fluency*'),
+(30, 178, 'grammar', 'english grammar text', 'korean grammar text'),
+(31, 178, 'fluency', 'english fluency text', 'korean fluency text'),
+(32, 182, 'fluency', 'english fluency', 'korean fluency'),
+(33, 183, 'fluency', 'english fluency', 'korean fluency'),
+(34, 185, 'group_lesson_header', 'Group Class', '그룹 클래스'),
+(35, 185, 'table_head_select', 'Select', '고르다'),
+(36, 185, 'table_head_teacher', 'Teacher', '선생'),
+(37, 185, 'table_head_lesson_time', 'Lesson Start Time', '수업 시작 시간'),
+(38, 185, 'table_head_kind_of_lesson', 'Kind of Lesson', '수업 의 종류'),
+(39, 185, 'table_head_how_long', 'How Long', '얼마나 오래'),
+(40, 185, 'table_head_topic', 'Topic', '이야기'),
+(41, 185, 'table_head_max_students', 'Max Students', '최대 학생'),
+(42, 185, 'table_head_level', 'Level', '수평'),
+(43, 185, 'table_head_spend_point', 'Spend Point', '포인트 를 지출'),
+(44, 185, 'btn_reserve', 'Reserve', '비축'),
+(45, 185, 'btn_details', 'Details', '세부'),
+(46, 188, 'heading_my_reservation', 'My Reservation', '나의 예약'),
+(47, 188, 'table_head_teacher', 'Teacher', '선생'),
+(48, 188, 'table_head_topic_title', 'Topic Title', '주제 제목'),
+(49, 188, 'table_head_max_students', 'Max Students', '최대 학생'),
+(50, 188, 'table_head_student_level', 'Student Level', '학생 수준'),
+(51, 188, 'table_head_kind_of_lesson', 'Kind of Lesson', '수업 의 종류'),
+(52, 188, 'table_head_max_students', 'Max Students', '\r\n최대 학생'),
+(53, 188, 'table_head_how_long', 'How Long', '얼마나 오래'),
+(54, 188, 'table_head_point', 'Point', '포인트'),
+(55, 188, 'table_head_action', 'Action', '동작'),
+(56, 188, 'btn_show_group_classes', 'Show Group Classes', '쇼 그룹 수업'),
+(57, 188, 'btn_cancel', 'Cancel', '취소하다'),
+(58, 185, 'btn_my_group_reservations', 'My Group Reservations', '내 그룹 예약'),
+(59, 188, 'btn_details', 'Details', '세부'),
+(60, 186, 'heading_confirm_reservation', 'Confirm Reservation', '예약 확인'),
+(61, 186, 'table_head_topic_title', 'Topic Title', '주제 제목'),
+(62, 186, 'table_head_topic_details', 'Topic Details', '항목 세부 정보'),
+(63, 186, 'table_head_kind_of_lesson', 'Kind of Lesson', '수업 의 종류'),
+(64, 186, 'table_head_student_level', 'Student Level', '학생 수준'),
+(65, 186, 'table_head_lesson_time', 'Lesson Start Time', '수업 시작 시간'),
+(66, 186, 'table_head_max_students', 'Max Student', '최대 학생'),
+(67, 186, 'table_head_how_long', 'How Long', '얼마나 오래'),
+(68, 186, 'table_head_spend_point', 'Spend Point', '포인트 를 지출'),
+(69, 185, 'btn_show_students', 'Show Students', '보기 학생'),
+(70, 186, 'btn_back', 'Back', '뒤로'),
+(71, 186, 'btn_confirm', 'Confirm', '확인'),
+(72, 186, 'text_teacher', 'Teacher', '선생'),
+(73, 186, 'text_your_current_points', 'Your current points', '현재 포인트'),
+(74, 186, 'text_spend_points', 'Spend Points', '포인트 를 지출'),
+(75, 186, 'text_your_points_after_reserving', 'Your points after reserving', '당신의 점 예약 후'),
+(76, 189, 'table_head_teacher', 'Teacher', '선생'),
+(77, 189, 'table_head_lesson_time', 'Lesson Start Time', '수업 시작 시간'),
+(78, 189, 'table_head_kind_of_lesson', 'Kind of Lesson', '수업 의 종류'),
+(79, 189, 'table_head_how_long', 'How Long', '얼마나 오래'),
+(80, 189, 'table_head_topic', 'Topic', '이야기'),
+(81, 189, 'table_head_level', 'Level', '수평'),
+(82, 189, 'table_head_spend_point', 'Spend Point', '포인트 를 지출'),
+(83, 189, 'btn_details', 'Details', '세부'),
+(84, 189, 'btn_show_students', 'Show Students', '보기 학생'),
+(85, 189, 'table_head_max_students', 'Max Students', '최대 학생'),
+(86, 188, 'table_head_lesson_time', 'Lesson Start Time', '수업 시작 시간');

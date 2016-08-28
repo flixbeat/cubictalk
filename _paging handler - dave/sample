@@ -1,0 +1,41 @@
+<?php
+	function class_history($pageNumber = null){
+		$language = $this->LanguageHandler->set_lang();
+		$this->set('language',$language);
+
+		$pageNumber = $pageNumber==null ? 1:$pageNumber;
+		
+		# initial page landing get first 10
+		if($pageNumber == 1){
+			$q = $this->GroupLesson->query("SELECT *,
+				(SELECT count(DISTINCT user_id) FROM lessons where group_lesson_id = gl.id) as students_reserved,
+				(select img_file from teachers where id = gl.teacher_id) as teacher_img
+				FROM group_lessons as gl WHERE SUBSTRING(lesson_time, 1, 10) < curdate() ORDER BY lesson_time DESC LIMIT 10");
+		}
+		else{
+			$startRow = ($pageNumber * 10) - 10;
+
+			$q = $this->GroupLesson->query("SELECT *,
+				(SELECT count(DISTINCT user_id) FROM lessons where group_lesson_id = gl.id) as students_reserved,
+				(select img_file from teachers where id = gl.teacher_id) as teacher_img
+				FROM group_lessons as gl WHERE SUBSTRING(lesson_time, 1, 10) < curdate() ORDER BY lesson_time DESC LIMIT $startRow,10");
+		}
+
+		# get all rows divided by 10
+		$totalRows = $this->GroupLesson->query("SELECT count(*)/10 as page_count FROM group_lessons as gl WHERE SUBSTRING(lesson_time, 1, 10) < curdate()");
+		# initialize paging
+		$pages = $this->PagingHandler->createPaging($pageNumber,$totalRows);
+		# store paging
+		$this->set('paging',$this->PagingHandler->writePaging($pageNumber,$pages));
+		# give page number to view for numbering
+		if($pageNumber == null) $this->set('pageNumber',1);
+		else $this->set('pageNumber',$pageNumber);
+
+		$this->set('groupLessons',$q);
+
+		
+	}
+?>
+
+<!-- x.ctp -->
+<?=$paging?>

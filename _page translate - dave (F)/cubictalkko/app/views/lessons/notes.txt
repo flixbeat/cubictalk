@@ -1,0 +1,8 @@
+to access a variable just use:
+
+<?php
+	echo $language[$session->read('lang')]['fluency'];
+?>
+
+fluency - variable name
+$session->read('lang') - contains the language like en,ko,jp,...

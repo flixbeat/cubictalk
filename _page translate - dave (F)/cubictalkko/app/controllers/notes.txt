@@ -1,0 +1,18 @@
+sir, these are just samples of controller that has translate page (Lessons,Payments,Teachers)
+
+
+
+every controller needs to add 'LanguageHandler' component
+$var components = array('LanguageHandler');
+
+
+
+in the controller's function, we need to add 2 lines of code
+
+ex:
+
+function index(){
+	$language = $this->LanguageHandler->set_lang();
+	$this->set('language',$language);
+}
+

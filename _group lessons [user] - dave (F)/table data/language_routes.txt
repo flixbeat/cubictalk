@@ -1,0 +1,46 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.3.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jul 22, 2016 at 04:47 AM
+-- Server version: 5.1.33
+-- PHP Version: 5.2.9
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `english`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `language_routes`
+--
+
+CREATE TABLE IF NOT EXISTS `language_routes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `controller` varchar(80) DEFAULT NULL,
+  `action` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=190 ;
+
+--
+-- Dumping data for table `language_routes`
+--
+
+INSERT INTO `language_routes` (`id`, `controller`, `action`) VALUES
+(181, 'lessons', 'index'),
+(178, 'lessons', 'mypage'),
+(113, 'controller6', 'index'),
+(114, 'controller3', ''),
+(144, 'controller4', 'ajax3'),
+(145, 'controller5', 'delete'),
+(182, 'teachers', 'index'),
+(183, 'payments', 'index'),
+(185, 'group_lessons', 'index'),
+(186, 'group_lessons', 'confirmation'),
+(187, 'group_lessons', 'submit_confirm'),
+(188, 'group_lessons', 'my_reservations'),
+(189, 'group_lessons', 'class_history');
